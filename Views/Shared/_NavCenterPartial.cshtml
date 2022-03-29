@@ -1,0 +1,31 @@
+﻿@model nat.Storage.Entity.Center
+
+<div class="container align-items-center mt-5">
+    <h1 class="text-center mb-3">Фитнес центр</h1>
+    <table class="table">
+       <thead>
+           <tr>
+               <th class="text-center" scope="col">Название</th>
+               <th class="text-center" scope="col">Город</th>
+               <th class="text-center" scope="col">Улица</th>
+               <th class="text-center" scope="col">Дом</th>
+               <th class="text-center" scope="col">изменить</th>
+               <th class="text-center" scope="col">Список тренеров</th>
+               <th class="text-center" scope="col">Список клиентов</th>
+               <th class="text-center" scope="col">Добавить тренера</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td class="text-center" scope="row">@Model.Name</td>
+               <td class="text-center" scope="row">@Model.AdressCity</td>
+               <td class="text-center" scope="row">@Model.AdressStreet</td>
+               <td class="text-center" scope="row">@Model.AdressNumberHouse</td>
+               <td class="text-center bg-warning" scope="row">@Html.ActionLink("изменить", "UpdateCenter", "Center", new { id = Model.Id })</td>
+               <td class="text-center bg-warning" scope="row">@Html.ActionLink("показать", "AllTrainertsCenter", "Center", new { id = Model.Id })</td>
+               <td class="text-center bg-warning" scope="row">@Html.ActionLink("показать", "AllCustomersCenter", "Center", new { id = Model.Id })</td>
+               <td class="text-center bg-warning" scope="row">@Html.ActionLink("добавить", "CreateTrainer", "Trainer", new { CenterId = Model.Id })</td>
+           </tr>
+       </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+﻿@using nat.Storage.Entity
+@model List<EndPoint>
+
+<partial name="_NavInfoPortsPartial" />
+
+@if (Model != null)
+{
+    <div class="container align-items-center mt-5">
+        <h2 class="text-center">@ViewData["MiniTitle"]</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Номер порта</th>
+                    <th class="text-center" scope="col">Семейство IP-адресов</th>
+                    <th class="text-center" scope="col">IP-адресс конечной точки</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                    foreach (var value in Model)
+                    {
+                        <tr>
+                            <th class="text-center" scope="row">@value.Port</th>
+                            <td class="text-center" scope="row">@value.AddressFamily</td>
+                            <td class="text-center" scope="row">@value.Address</td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

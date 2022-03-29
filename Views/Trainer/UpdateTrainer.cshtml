@@ -1,0 +1,33 @@
+﻿@model nat.Storage.Entity.Trainer 
+@{
+    ViewData["Title"] = "РедактироваТЬ тренера";
+}
+
+<div class="container col-6 align-items-center mt-5">
+    <h1 class="text-center mb-3">Редактировать тренера</h1>
+    <form method="post" asp-controller="Trainer" asp-action="Create">
+        <div class="form-group">
+            <label for="SurName">Фамилия:</label>
+            <input class="form-control" id="SurName" type="text" name="SurName" value="@Model.SurName" required />
+        </div>
+        <div class="form-group">
+            <label for="Name">Имя:</label>
+            <input class="form-control" id="Name" type="text" name="Name" value="@Model.Name" required />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Отчество:</label>
+            <input class="form-control" id="LastName" type="text" name="LastName" value="@Model.LastName" required />
+        </div>
+        <div class="form-group">
+            <label for="Specialization">Cпециализация:</label>
+            <input class="form-control" id="Specialization" type="text" name="Specialization" value="@Model.Specialization" required/>
+        </div>
+        <div class="form-group">
+           <input class="form-control" type="hidden" name="id" value="@Model.Id" />
+        </div>
+        <div class="form-group">
+           <input class="form-control" type="hidden" name="CenterId" value="@Model.CenterId" />
+        </div>
+        <button type="submit" class="btn bg-warning btn-block">Изменить</button>
+    </form>
+</div>

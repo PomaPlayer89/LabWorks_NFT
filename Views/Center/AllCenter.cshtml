@@ -1,0 +1,41 @@
+﻿@model List<nat.Storage.Entity.Center>
+@{
+    ViewData["Title"] = "Все центры";
+}
+
+<div class="container align-items-center mt-5">
+    <h1 class="text-center mb-3">Все фитнес центры</h1>
+    <table class="table">
+       <thead>
+           <tr>
+               <th class="text-center" scope="col">№</th>
+               <th class="text-center" scope="col">Название</th>
+               <th class="text-center" scope="col">Город</th>
+               <th class="text-center" scope="col">Улица</th>
+               <th class="text-center" scope="col">Дом</th>
+               <th class="text-center" scope="col">открыть</th>
+               <th class="text-center" scope="col">изменить</th>
+               <th class="text-center" scope="col">удалить</th>
+           </tr>
+       </thead>
+       <tbody>
+           @{
+               int number = 1;
+               foreach (var a in Model)
+               {
+                   <tr>
+                       <td class="text-center" scope="row">@number.ToString()</td>
+                       <td class="text-center" scope="row">@a.Name</td>
+                       <td class="text-center" scope="row">@a.AdressCity</td>
+                       <td class="text-center" scope="row">@a.AdressStreet</td>
+                       <td class="text-center" scope="row">@a.AdressNumberHouse</td>
+                       <td class="text-center bg-warning" scope="row">@Html.ActionLink("открыть", "Center", "Center", new { id = a.Id })</td>
+                       <td class="text-center bg-warning" scope="row">@Html.ActionLink("изменить", "UpdateCenter", "Center", new { id = a.Id })</td>
+                       <td class="text-center bg-warning" scope="row">@Html.ActionLink("удалить", "Delete", "Center", new { id = a.Id })</td>
+                   </tr>                      
+                   number++;
+               }
+           }
+       </tbody>
+    </table>
+</div>

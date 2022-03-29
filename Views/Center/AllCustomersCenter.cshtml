@@ -1,0 +1,41 @@
+﻿@model nat.Storage.Entity.Center
+@{
+    ViewData["Title"] = "Список клиентов";
+}
+
+<partial name="_NavCenterPartial" model='Model' />
+
+<div class="container align-items-center mt-5">
+    <h2 class="text-center mb-3">Список клиентов</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">№</th>
+                <th class="text-center" scope="col">Фамилия</th>
+                <th class="text-center" scope="col">Имя</th>
+                <th class="text-center" scope="col">Отчество</th>
+                <th class="text-center" scope="col">Дата рождения</th>
+                <th class="text-center" scope="col">изменить</th>
+                <th class="text-center" scope="col">удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int number = 1;
+                foreach (var a in Model.Customers)
+                {
+                    <tr>
+                        <td class="text-center" scope="row">@number.ToString()</td>
+                        <td class="text-center" scope="row">@a.SurName</td>
+                        <td class="text-center" scope="row">@a.Name</td>
+                        <td class="text-center" scope="row">@a.LastName</td>
+                        <td class="text-center" scope="row">@a.Birthday.ToShortDateString()</td>
+                        <td class="text-center bg-warning" scope="row">@Html.ActionLink("изменить", "UpdateCustomer", "Customer", new { id = a.Id, CenterId = Model.Id })</td>
+                        <td class="text-center bg-warning" scope="row">@Html.ActionLink("удалить", "Delete", "Customer", new { id = a.Id, CenterId = Model.Id })</td>
+                    </tr>
+                    number++;
+                }
+            }
+        </tbody>
+    </table>
+</div>

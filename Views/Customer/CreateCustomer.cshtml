@@ -1,0 +1,33 @@
+﻿@model nat.Manager.Help
+@{
+    ViewData["Title"] = "Добавить клиента";
+}
+
+<div class="container col-6 align-items-center mt-5">
+    <h1 class="text-center mb-3">Добавить клиента</h1>
+    <form method="post" asp-controller="Customer" asp-action="Create">
+        <div class="form-group">
+            <label for="SurName">Фамилия:</label>
+            <input class="form-control" id="SurName" type="text" name="SurName" required />
+        </div>
+        <div class="form-group">
+            <label for="Name">Имя:</label>
+            <input class="form-control" id="Name" type="text" name="Name" required />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Отчество:</label>
+            <input class="form-control" id="LastName" type="text" name="LastName" required />
+        </div>
+        <div class="form-group">
+            <label for="Birthday">Дата Рождения:</label>
+            <input class="form-control" id="Birthday" type="date" name="Birthday" required />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="CenterId" value="@Model.CenterId" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="TrainerId" value="@Model.TrainerId" />
+        </div>
+        <button type="submit" class="btn bg-warning btn-block">Создать</button>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+﻿@model nat.Storage.Entity.Center
+@{
+    ViewData["Title"] = "Редактировать центр";
+}
+
+<partial name="_NavCenterPartial" model='Model' />
+
+<div class="container col-6 align-items-center mt-5">
+    <h2 class="text-center mb-3">Редактировать фитнес центр</h2>
+    <form method="post" asp-controller="Center" asp-action="Update">
+        <div class="form-group">
+            <label for="Name">Наименование организации:</label>
+            <input class="form-control" id="Name" type="text" name="Name" value="@Model.Name" required />
+        </div>
+        <div class="form-group">
+            <label for="AdressCity">Город:</label>
+            <input class="form-control" id="AdressCity" type="text" name="AdressCity" value="@Model.AdressCity" required />
+        </div>
+        <div class="form-group">
+            <label for="AdressStreet">Улица:</label>
+            <input class="form-control" id="AdressStreet" type="text" name="AdressStreet" value="@Model.AdressStreet" required />
+        </div>
+        <div class="form-group">
+            <label for="AdressNumberHouse">Дом:</label>
+            <input class="form-control" id="AdressNumberHouse" type="text" name="AdressNumberHouse" value="@Model.AdressNumberHouse" required />
+        </div>
+        <div class="form-group">
+            <input class="form-control"  type="hidden" name="id" value="@Model.Id" />
+        </div>
+        <button type="submit" class="btn bg-warning btn-block">Изменить</button>
+    </form>
+</div>

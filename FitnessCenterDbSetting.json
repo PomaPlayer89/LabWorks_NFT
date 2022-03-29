@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "FitnessCenterDb": "Server=localhost,1433;Database=CenterDataBase;User ID=sa;Password=dvUO5bRBuQ3KVuW9;MultipleActiveResultSets=true"
+  }
+}

@@ -1,0 +1,36 @@
+﻿@model nat.Manager.Help
+@{
+    ViewData["Title"] = "Редактировать клиента";
+}
+
+<div class="container col-6 align-items-center mt-5">
+    <h1 class="text-center mb-3">Редактировать клиента</h1>
+    <form method="post" asp-controller="Customer" asp-action="Update">
+        <div class="form-group">
+            <label for="SurName">Фамилия:</label>
+            <input class="form-control" id="SurName" type="text" name="SurName" value="@Model.Customer.SurName" required />
+        </div>
+        <div class="form-group">
+            <label for="Name">Имя:</label>
+            <input class="form-control" id="Name" type="text" value="@Model.Customer.Name" name="Name" required />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Отчество:</label>
+            <input class="form-control" id="LastName" type="text" value="@Model.Customer.LastName" name="LastName" required />
+        </div>
+        <div class="form-group">
+            <label for="Birthday">Дата Рождения:</label>
+            <input class="form-control" id="Birthday" type="date" value="@Model.Customer.Birthday" name="Birthday" required />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="id" value="@Model.Customer.Id" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="CenterId" value="@Model.CenterId" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="TrainerId" value="@Model.TrainerId" />
+        </div>
+        <button type="submit" class="btn bg-warning btn-block">Изменить</button>
+    </form>
+</div>

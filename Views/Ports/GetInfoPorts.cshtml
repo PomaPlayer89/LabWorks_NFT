@@ -1,0 +1,41 @@
+﻿@using nat.Storage.Entity
+@model List<PortInfo>
+@{
+    ViewData["Title"] = "Активные TCP подключения";
+    ViewData["MiniTitle"] = "Список активных TCP подключений";
+    ViewData["ErrorTitle"] = ViewData["MiniTitle"];
+}
+
+<partial name="_NavInfoPortsPartial" />
+
+@if (Model != null)
+{
+    <div class="container align-items-center mt-5">
+        <h2 class="text-center">@ViewData["MiniTitle"]</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Номер порта</th>
+                    <th class="text-center" scope="col">Инфо о локальной точки подключения</th>
+                    <th class="text-center" scope="col">Инфо о удаленной точки подключения</th>
+                    <th class="text-center" scope="col">Состояние подключения</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                    foreach (var value in Model)
+                    {
+                        <tr>
+                            <th class="text-center" scope="row">@value.PortNumber</th>
+                            <td class="text-center" scope="row">@value.Local</td>
+                            <td class="text-center" scope="row">@value.Remote</td>
+                            <td class="text-center" scope="row">@value.State</td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

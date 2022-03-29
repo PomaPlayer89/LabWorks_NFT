@@ -1,0 +1,64 @@
+﻿@model nat.Storage.Entity.Center
+@{
+    ViewData["Title"] = "Список трейнеров";
+}
+
+<partial name="_NavCenterPartial" model='Model' />
+
+<div class="container align-items-center mt-5">
+    <form method="post" asp-controller="Center" asp-action="SearchTrainer">
+         <div class="form-group">
+            <label for="Search">Поиск</label>
+                <select class="form-control" id="Search" name="name">
+                    <option value="all">по всем</option>
+                    <option value="name">по ФИО</option>
+                    <option value="specialization">по специализации</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="@Model.Id" />
+        </div>
+        <div class="form-group">
+            <label for="Text">Введите текст</label>
+            <input class="form-control" id="Text" name="text" type="text" />
+        </div>
+        <button type="submit" class="btn bg-warning btn-block">Найти</button>
+    </form>
+</div>
+
+<div class="container align-items-center mt-5">
+    <h2 class="text-center mb-3">Список трейнеров</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">№</th>
+                <th class="text-center" scope="col">Фамилия</th>
+                <th class="text-center" scope="col">Имя</th>
+                <th class="text-center" scope="col">Отчество</th>
+                <th class="text-center" scope="col">специальность</th>
+                <th class="text-center" scope="col">изменить</th>
+                <th class="text-center" scope="col">удалить</th>
+                <th class="text-center" scope="col">добавить клиента</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int number = 1;
+                foreach (var a in Model.Trainers)
+                {
+                    <tr>
+                        <td class="text-center" scope="row">@number.ToString()</td>
+                        <td class="text-center" scope="row">@a.SurName</td>
+                        <td class="text-center" scope="row">@a.Name</td>
+                        <td class="text-center" scope="row">@a.LastName</td>
+                        <td class="text-center" scope="row">@a.Specialization</td>
+                        <td class="text-center bg-warning" scope="row">@Html.ActionLink("изменить", "UpdateTrainer", "Trainer", new { id = a.Id })</td>
+                        <td class="text-center bg-warning" scope="row">@Html.ActionLink("удалить", "Delete", "Trainer", new { id = a.Id, CenterId = a.CenterId })</td>
+                        <td class="text-center bg-warning" scope="row">@Html.ActionLink("добавить", "CreateCustomer", "Customer", new { CenterId = a.CenterId, TrainerId = a.Id })</td>
+                    </tr>
+                    number++;
+                }
+            }
+        </tbody>
+    </table>
+</div>

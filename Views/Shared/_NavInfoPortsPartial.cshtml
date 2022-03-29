@@ -1,0 +1,18 @@
+﻿<div class="container align-items-center mt-5">
+    <h2 class="text-center mb-4">Cведения о сетевых интерфейсах локального компьютера и сетевых подключениях</h2>
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <td class="text-center" scope="row">
+                    <a asp-controller="Ports" asp-action="GetInfoPorts" class="btn bg-warning btn-block" >Список активных TCP подключений</a>
+                </td>
+                <td class="text-center" scope="row">
+                    <a asp-controller="Ports" asp-action="GetInfoActiveTCPListeners" class="btn bg-warning btn-block" >Сведения об активных прослушивателей TCP</a>
+                </td>
+                <td class="text-center" scope="row">
+                     <a asp-controller="Ports" asp-action="GetInfoActiveUDPListeners" class="btn bg-warning btn-block" >Сведения об активных прослушивателей UDP</a>
+                </td>
+           </tr>
+        </tbody>
+    </table>
+</div>
